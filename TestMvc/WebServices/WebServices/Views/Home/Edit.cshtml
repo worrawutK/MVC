@@ -1,0 +1,35 @@
+﻿@model WebServices.Models.Reservation
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>
+            @(Model.ReservationId == 0 ? "Create Reservation" :
+                $"Edit Reservation {Model.ReservationId}")
+    </h3>
+</div>
+@using (Html.BeginForm("Edit", "Home"))
+{
+    <div class="panel-body">
+        @Html.HiddenFor(m => m.ReservationId)
+        @foreach (var property in ViewData.ModelMetadata.Properties)
+        {
+            if (property.PropertyName != "ReservationId")
+            {
+                <div class="form-group">
+                    <label>@property.PropertyName</label>
+                    @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                    @Html.ValidationMessage(property.PropertyName)
+                </div>
+            }
+        }
+    </div>
+        <div class="panel-footer">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            @Html.ActionLink("Cancel and return to List", "Index", null, new { @class = "btn btn-default" })
+        </div>
+}
+</div>
