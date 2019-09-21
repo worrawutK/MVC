@@ -17,7 +17,7 @@ namespace SportsStore.Domain.Concrete
             {
                 //SportsStore
                 //Data Source =.\SQLExpress; Initial Catalog = StortsStore; Integrated Security = True
-                var conn = new SqlConnection("Data Source=.\\SQLExpress;Initial Catalog=StortsStore;Integrated Security=True");
+                var conn = new SqlConnection("Data Source=10.28.33.11;Initial Catalog=TestWut;Persist Security Info=True;User ID=sa;Password=p@$$w0rd");
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM Products";
@@ -42,7 +42,7 @@ namespace SportsStore.Domain.Concrete
 
         public Product DeleteProduct(int productID)
         {
-            var conn = new SqlConnection("Data Source=.\\SQLExpress;Initial Catalog=StortsStore;Integrated Security=True");
+            var conn = new SqlConnection("Data Source=10.28.33.11;Initial Catalog=TestWut;Persist Security Info=True;User ID=sa;Password=p@$$w0rd");
             using (var cmd = conn.CreateCommand())
             {
                 cmd.CommandText = "SELECT TOP 1 * FROM Products WHERE ProductId = @ProductId";
@@ -68,7 +68,7 @@ namespace SportsStore.Domain.Concrete
 
         public void SaveProduct(Product product)
         {
-            var conn = new SqlConnection("Data Source=.\\SQLExpress;Initial Catalog=StortsStore;Integrated Security=True");
+            var conn = new SqlConnection("Data Source=10.28.33.11;Initial Catalog=TestWut;Persist Security Info=True;User ID=sa;Password=p@$$w0rd");
             if (product.ProductID == 0)
             {
                 using (var cmd = conn.CreateCommand())
